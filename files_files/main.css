@@ -91,6 +91,7 @@
     font-family: 'HelveticaNeue',Arial,sans-serif;
     line-height: 1.55;
     font-weight: 300;
+    padding-bottom: 50px;
 }
 
 #c_footer .c_headline a {
@@ -115,7 +116,19 @@
     color: #9472B2;
 }
 
-/**/
+#c_footer .c_nav_container a {
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+#c_footer .c_nav_container .right a {
+    font-weight: 500;
+}
+
+#c_footer .c_nav_container .right {
+    margin-left: 200px;
+}
+
 #c_footer .c_headline {
     padding: 30px 0 15px 0;
 }
@@ -176,6 +189,10 @@
     .c_vestLicenseM {
         width: 100%;
     }
+
+    #c_footer .c_nav_container .right {
+        margin-left: 150px;
+    }
 }
 
 @media screen and (max-width: 639px) {
@@ -193,6 +210,14 @@
         width: 340px;
         margin: 0 auto;
     }
+
+    #c_footer .c_nav_container .right {
+        margin-left: 50px;
+    }
+
+    #c_footer .c_nav_container a {
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 479px) {
@@ -208,5 +233,13 @@
     .c_vestLicenseM .headline-wrapp {
         width: 280px;
         margin: 0 auto;
+    }
+
+    #c_footer .c_nav_container {
+        flex-direction: column;
+    }
+
+    #c_footer .c_nav_container .right {
+        margin-left: 0;
     }
 }
