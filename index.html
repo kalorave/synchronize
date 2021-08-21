@@ -19847,23 +19847,23 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         }
                     </style>
                     <script>
-                        $(document).ready(function() {
-                            //Задаём ID нашего Слайдера
-                            var sliderID = '#rec281614513 .t-slds__item';
-                            //Считаем кол-во слайдов...
-                            var slidercount = $(sliderID).length;
-                            //Записываем ID наших ZeroBlockov
-                            var zeroSlideFull = ["#rec281614514", "#rec281617650", "#rec281619592", "#rec281620121", "#rec281621176", "#rec281621673", "#rec281616014", "#rec281616813", "#rec281620687"];
-                            //Очищаем слайды
-                            $(sliderID).empty();
-                            //Создаём слайдер...
-                            for(let i = 0; i < slidercount - 2; i++) {
-                                $(zeroSlideFull[i]).appendTo(sliderID + ":eq(" + (i + 1) + ")");
-                            };
-                            //Клонируем блоки в нулевой и конечный слайд
-                            $(zeroSlideFull[0]).clone().appendTo(sliderID + ":eq(" + (slidercount - 1) + ")");
-                            $(zeroSlideFull.pop()).clone().appendTo(sliderID + ":eq(0)");
-                        });
+                        // $(document).ready(function() {
+                        //     //Задаём ID нашего Слайдера
+                        //     var sliderID = '#rec281614513 .t-slds__item';
+                        //     //Считаем кол-во слайдов...
+                        //     var slidercount = $(sliderID).length;
+                        //     //Записываем ID наших ZeroBlockov
+                        //     var zeroSlideFull = ["#rec281614514", "#rec281617650", "#rec281619592", "#rec281620121", "#rec281621176", "#rec281621673", "#rec281616014", "#rec281616813", "#rec281620687"];
+                        //     //Очищаем слайды
+                        //     $(sliderID).empty();
+                        //     //Создаём слайдер...
+                        //     for(let i = 0; i < slidercount - 2; i++) {
+                        //         $(zeroSlideFull[i]).appendTo(sliderID + ":eq(" + (i + 1) + ")");
+                        //     };
+                        //     //Клонируем блоки в нулевой и конечный слайд
+                        //     $(zeroSlideFull[0]).clone().appendTo(sliderID + ":eq(" + (slidercount - 1) + ")");
+                        //     $(zeroSlideFull.pop()).clone().appendTo(sliderID + ":eq(0)");
+                        // });
                     </script>
                     <!-- nominify end -->
                 </div>
