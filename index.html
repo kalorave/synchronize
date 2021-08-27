@@ -10007,8 +10007,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                             <div class="style_type__689Yb">Образовательный вебинар</div>
                                             <h2 class="style_title__1KQyQ">Бренд в аренду.<br>Профессиональный курс.
                                             </h2>
-                                            <div class="style_type__689Yb" style="margin-bottom: 15px;">Регистрация</div>
-                                            <div class="c_form_res_msg"></div>
+                                            <div class="style_type__689Yb" style="margin-bottom: 15px;">Регистрация
+                                            </div>
                                             <div id="style_id__BYjgW" class="style_textfield__44689">
                                                 <div class="style_inner__3GS6_">
                                                     <label>
@@ -10086,6 +10086,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                                     Зарегистрироваться
                                                 </button>
                                             </div>
+                                            <div class="c_form_res_msg"></div>
                                             <p class="style_agreement__3CZCd">
                                                 * - поля обязательны для заполнения.
                                                 <br><br>
@@ -10133,29 +10134,40 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                                     const isValid = $('#c_reg_form').valid();
 
                                                     if (isValid) {
-                                                        const data = JSON.stringify({
-                                                            name: $('input[name=name]').val(),
-                                                            email: $('input[name=email]').val(),
-                                                            phone: $('input[name=phone]').val(),
-                                                            company: $('input[name=company]').val(),
-                                                            position: $('input[name=position]').val(),
-                                                        });
+                                                        const data = {
+                                                            name: $('input[name=name]').val().trim(),
+                                                            email: $('input[name=email]').val().trim(),
+                                                            phone: $('input[name=phone]').val().trim(),
+                                                            company: $('input[name=company]').val().trim(),
+                                                            position: $('input[name=position]').val().trim()
+                                                        }
+
+                                                        const jsonData = JSON.stringify(data);
 
                                                         $.ajax({
                                                             type: "POST",
-                                                            url: "https://licensingrussia.ru/webinar/join",
-                                                            dataType: 'json',
-                                                            contentType: "application/json; charset=utf-8",
-                                                            data: data,
+                                                            url: "https://licensingrussia.ru/webinar/join/",
+                                                            crossDomain: true,
+                                                            processData: false,
+                                                            data: jsonData,
                                                             success: function () {
-                                                                $('.c_form_res_msg').text(`${data.name}, спасибо за регистрацию на вебинар.`).addClass('c_success');
+                                                                $('.c_form_res_msg')
+                                                                    .text(`${data.name.charAt(0).toUpperCase() + data.name.slice(1)}, спасибо за регистрацию на вебинар.`)
+                                                                    .removeClass('c_error')
+                                                                    .addClass('c_success');
                                                             },
                                                             error: function () {
-                                                                $('.c_form_res_msg').text('Произошла ошибка').addClass('c_error');
+                                                                $('.c_form_res_msg')
+                                                                    .text('Произошла ошибка')
+                                                                    .removeClass('c_success')
+                                                                    .addClass('c_error');
                                                             }
                                                         });
                                                     } else {
-                                                        $('.c_form_res_msg').text('Форма запролнена неправильно').addClass('c_error');
+                                                        $('.c_form_res_msg')
+                                                            .text('Форма запролнена неправильно')
+                                                            .removeClass('c_success')
+                                                            .addClass('c_error');
                                                     }
                                                 });
                                             });
