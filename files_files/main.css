@@ -144,6 +144,11 @@
     justify-content: flex-start;
 }
 
+.reg_result_msg {
+    border: 5px solid green;
+    padding: 5px;
+}
+
 
 @media screen and (max-width: 1199px) {
     .c_container {
@@ -194,6 +199,8 @@
         margin-left: 150px;
     }
 }
+
+
 
 @media screen and (max-width: 639px) {
     .c_container {
